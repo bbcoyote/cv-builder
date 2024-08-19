@@ -3,6 +3,8 @@ import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import "../styles/ContactInfo.styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// use setState here
+
 function ContactInfo() {
   return (
     <>
@@ -14,7 +16,7 @@ function ContactInfo() {
             input at lease your name, email, and phone number.
           </p>
         </div>
-        <div className='form-wrapper'>
+        <div className='contact-form-wrapper'>
           <form action=''>
             <label htmlFor='name' className='name'>
               <FontAwesomeIcon icon={faQuestion} />

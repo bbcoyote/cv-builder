@@ -7,7 +7,7 @@ function Education() {
         <div className='page-info'>
           <h1>Education Level</h1>
         </div>
-        <div className='form-wrapper'>
+        <div className='education-form-wrapper'>
           <form action=''>
             <label htmlFor='school-name'>
               School Name
@@ -27,6 +27,10 @@ function Education() {
             <label htmlFor='Graduation-date'>
               <input type='text' placeholder='10/20/2015 to 08/15/2019' />
             </label>
+            <div className='button-group'>
+              <button>Submit</button>
+              <button>Edit</button>
+            </div>
           </form>
         </div>
       </div>

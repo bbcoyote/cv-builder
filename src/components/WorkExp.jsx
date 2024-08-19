@@ -1,3 +1,5 @@
+import "../styles/WorkExp.styles.css";
+
 function WorkExp() {
   return (
     <>
@@ -6,7 +8,7 @@ function WorkExp() {
           <h1 className='title'>Work Exp</h1>
           <p>Start with your most recent experience and work backward.</p>
         </div>
-        <div className='form-wrapper'>
+        <div className='work-form-wrapper'>
           <form action=''>
             <label htmlFor='work title'>
               WHAT WAS YOUR TITLE?
@@ -31,6 +33,10 @@ function WorkExp() {
               END DATE
               <input type='text' placeholder='e.g. 08/18/2024' />
             </label>
+            <div className='button-group'>
+              <button>Submit</button>
+              <button>Edit</button>
+            </div>
           </form>
         </div>
       </div>
