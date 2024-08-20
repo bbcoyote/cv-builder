@@ -3,9 +3,58 @@ import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import "../styles/ContactInfo.styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// use setState here
+function ContactInfo({ setContactInfo }) {
+  const firstNameChange = (e) => {
+    setContactInfo((prevPersonName) => ({
+      ...prevPersonName,
+      firstName: e.target.value,
+    }));
+  };
 
-function ContactInfo() {
+  const lastNameChange = (e) => {
+    setContactInfo((prevPersonName) => ({
+      ...prevPersonName,
+      lastName: e.target.value,
+    }));
+  };
+
+  const jobTitle = (e) => {
+    setContactInfo((prevPerson) => ({
+      ...prevPerson,
+      jobTitle: e.target.value,
+    }));
+  };
+
+  const city = (e) => {
+    setContactInfo((prevInfo) => ({
+      ...prevInfo,
+      address: {
+        ...prevInfo.address,
+        city: e.target.value,
+      },
+    }));
+  };
+
+  const state = (e) => {
+    setContactInfo((prevInfo) => ({
+      ...prevInfo,
+      address: {
+        ...prevInfo.address,
+        state: e.target.value,
+      },
+    }));
+  };
+
+  const zip = (e) => {
+    setContactInfo((prevInfo) => ({
+      ...prevInfo,
+      address: {
+        ...prevInfo.address,
+        zip: e.target.value,
+      },
+    }));
+  };
+
   return (
     <>
       <div className='info-wrapper'>
@@ -20,18 +69,33 @@ function ContactInfo() {
           <form action=''>
             <label htmlFor='name' className='name'>
               <FontAwesomeIcon icon={faQuestion} />
-              <input type='text' placeholder='First Name' />
-              <input type='text' placeholder='Last Name' />
+              <input
+                type='text'
+                placeholder='First Name'
+                onChange={firstNameChange}
+              />
+              <input
+                type='text'
+                placeholder='Last Name'
+                onChange={lastNameChange}
+              />
             </label>
-            <label htmlFor='Job Title' className='desired-job-title'>
+            <label
+              htmlFor='Job Title'
+              className='desired-job-title'
+              onChange={jobTitle}>
               <FontAwesomeIcon icon={faQuestion} />
               <input type='text' placeholder='Desired Job Title (Optional)' />
             </label>
             <label htmlFor='address' className='address'>
               <FontAwesomeIcon icon={faQuestion} />
-              <input type='text' placeholder='City' />
-              <input type='text' placeholder='State/Province' />
-              <input type='text' placeholder='Zip Code' />
+              <input type='text' placeholder='City' onChange={city} />
+              <input
+                type='text'
+                placeholder='State/Province'
+                onChange={state}
+              />
+              <input type='text' placeholder='Zip Code' onChange={zip} />
             </label>
             <label htmlFor='email & phone number' className='contact-info'>
               <FontAwesomeIcon icon={faQuestion} />
