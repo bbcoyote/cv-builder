@@ -30,6 +30,14 @@ function App() {
     dateAttended: "",
   });
 
+  const [workExp, setWorkExp] = useState({
+    title: "",
+    company: "",
+    location: "",
+    startDate: "",
+    endDate: "",
+  });
+
   return (
     <>
       <div className='app-container'>
@@ -37,10 +45,14 @@ function App() {
           <h1>Hello, World!</h1>
           <ContactInfo setContactInfo={setContactInfo} />
           <Education setEducation={setEducation} />
-          <WorkExp />
+          <WorkExp setWorkExp={setWorkExp} />
         </div>
         <div className='resume-container'>
-          <Resume contactInfo={contactInfo} education={education} />
+          <Resume
+            contactInfo={contactInfo}
+            education={education}
+            workExp={workExp}
+          />
         </div>
       </div>
     </>

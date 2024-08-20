@@ -6,3 +6,9 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Got basic skeleton fleshed out for contact info, education, and work experience.
+Next steps are to add functionality with buttons on project.
+-Make the components collapsible
+-when working with education or work experience be able to add multiple objects
+-configure styling to make it look nicer.
