@@ -1,40 +1,62 @@
+/* eslint-disable react/prop-types */
 import "../styles/Education.styles.css";
 
 function Education({ setEducation }) {
-  const schoolName = (e) => {
-    setEducation((prevSchool) => ({
-      ...prevSchool,
-      schoolName: e.target.value,
-    }));
+  const addEducationEntry = () => {
+    setEducation((prev) => [
+      ...prev,
+      {
+        schoolName: "",
+        schoolLocation: "",
+        degree: "",
+        major: "",
+        dateAttended: "",
+      },
+    ]);
   };
 
-  const schoolLocation = (e) => {
-    setEducation((prevSchool) => ({
-      ...prevSchool,
-      schoolLocation: e.target.value,
-    }));
+  const handleEducationChange = (e, index, field) => {
+    setEducation((prev) => {
+      const newEntries = [...prev];
+      newEntries[index][field] = e.target.value;
+      return newEntries;
+    });
   };
 
-  const degree = (e) => {
-    setEducation((prevSchool) => ({
-      ...prevSchool,
-      degree: e.target.value,
-    }));
-  };
+  // const schoolName = (e) => {
+  //   setEducation((prevSchool) => ({
+  //     ...prevSchool,
+  //     schoolName: e.target.value,
+  //   }));
+  // };
 
-  const major = (e) => {
-    setEducation((prevSchool) => ({
-      ...prevSchool,
-      major: e.target.value,
-    }));
-  };
+  // const schoolLocation = (e) => {
+  //   setEducation((prevSchool) => ({
+  //     ...prevSchool,
+  //     schoolLocation: e.target.value,
+  //   }));
+  // };
 
-  const attendedDate = (e) => {
-    setEducation((prevSchool) => ({
-      ...prevSchool,
-      dateAttended: e.target.value,
-    }));
-  };
+  // const degree = (e) => {
+  //   setEducation((prevSchool) => ({
+  //     ...prevSchool,
+  //     degree: e.target.value,
+  //   }));
+  // };
+
+  // const major = (e) => {
+  //   setEducation((prevSchool) => ({
+  //     ...prevSchool,
+  //     major: e.target.value,
+  //   }));
+  // };
+
+  // const attendedDate = (e) => {
+  //   setEducation((prevSchool) => ({
+  //     ...prevSchool,
+  //     dateAttended: e.target.value,
+  //   }));
+  // };
 
   return (
     <>

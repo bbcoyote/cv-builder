@@ -22,21 +22,24 @@ function App() {
     phoneNumber: "",
   });
 
-  const [education, setEducation] = useState({
-    schoolName: "",
-    schoolLocation: "",
-    degree: "",
-    major: "",
-    dateAttended: "",
-  });
+  // const [education, setEducation] = useState({
+  //   schoolName: "",
+  //   schoolLocation: "",
+  //   degree: "",
+  //   major: "",
+  //   dateAttended: "",
+  // });
 
-  const [workExp, setWorkExp] = useState({
-    title: "",
-    company: "",
-    location: "",
-    startDate: "",
-    endDate: "",
-  });
+  // const [workExp, setWorkExp] = useState({
+  //   title: "",
+  //   company: "",
+  //   location: "",
+  //   startDate: "",
+  //   endDate: "",
+  // });
+
+  const [education, setEducation] = useState([]);
+  const [workExp, setWorkExp] = useState([]);
 
   return (
     <>
