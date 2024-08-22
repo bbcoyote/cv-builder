@@ -19,11 +19,15 @@ function Resume({ contactInfo, education, workExp }) {
         </div>
         <div className='education'>
           <h1>Education</h1>
-          <h2>{education.schoolName}</h2>
-          <h3>{education.schoolLocation}</h3>
-          <h3>{education.degree}</h3>
-          <h3>{education.major}</h3>
-          <h3>{education.dateAttended}</h3>
+          {education.map((element, index) => (
+            <div key={index}>
+              <h2>{element.schoolName}</h2>
+              <h3>{element.schoolLocation}</h3>
+              <h3>{element.degree}</h3>
+              <h3>{element.major}</h3>
+              <h3>{element.dateAttended}</h3>
+            </div>
+          ))}
         </div>
         <div className='work-history'>
           <h1>Work History</h1>

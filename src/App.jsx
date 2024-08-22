@@ -47,7 +47,7 @@ function App() {
         <div className='editor-container'>
           <h1>Hello, World!</h1>
           <ContactInfo setContactInfo={setContactInfo} />
-          <Education setEducation={setEducation} />
+          <Education setEducation={setEducation} education={education} />
           <WorkExp setWorkExp={setWorkExp} />
         </div>
         <div className='resume-container'>

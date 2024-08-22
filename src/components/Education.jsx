@@ -1,25 +1,34 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import "../styles/Education.styles.css";
 
-function Education({ setEducation }) {
-  const addEducationEntry = () => {
-    setEducation((prev) => [
-      ...prev,
-      {
-        schoolName: "",
-        schoolLocation: "",
-        degree: "",
-        major: "",
-        dateAttended: "",
-      },
-    ]);
+function Education({ setEducation, education }) {
+  const [formData, setFormData] = useState({
+    schoolName: "",
+    schoolLocation: "",
+    degree: "",
+    major: "",
+    dateAttended: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleEducationChange = (e, index, field) => {
-    setEducation((prev) => {
-      const newEntries = [...prev];
-      newEntries[index][field] = e.target.value;
-      return newEntries;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setEducation([...education, formData]);
+    setFormData({
+      schoolName: "",
+      schoolLocation: "",
+      degree: "",
+      major: "",
+      dateAttended: "",
     });
   };
 
@@ -65,13 +74,15 @@ function Education({ setEducation }) {
           <h1>Education Level</h1>
         </div>
         <div className='education-form-wrapper'>
-          <form action=''>
+          <form action='' onSubmit={handleSubmit}>
             <label htmlFor='school-name'>
               School Name
               <input
                 type='text'
                 placeholder='e.g. Foothill College'
-                onChange={schoolName}
+                name='schoolName'
+                value={formData.schoolName}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='school-location'>
@@ -79,14 +90,18 @@ function Education({ setEducation }) {
               <input
                 type='text'
                 placeholder='e.g. Los Altos, CA'
-                onChange={schoolLocation}
+                name='schoolLocation'
+                value={formData.schoolLocation}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='Degree'>
               <input
                 type='text'
                 placeholder='e.g. Bachelor of Arts'
-                onChange={degree}
+                name='degree'
+                value={formData.degree}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='Field'>
@@ -94,19 +109,23 @@ function Education({ setEducation }) {
               <input
                 type='text'
                 placeholder='e.g. Accounting'
-                onChange={major}
+                name='major'
+                value={formData.major}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='Graduation-date'>
               <input
                 type='text'
                 placeholder='10/20/2015 to 08/15/2019'
-                onChange={attendedDate}
+                name='dateAttended'
+                value={formData.dateAttended}
+                onChange={handleChange}
               />
             </label>
             <div className='button-group'>
-              <button>Submit</button>
-              <button>Edit</button>
+              <button type='button'>edit</button>
+              <button type='submit'>Submit</button>
             </div>
           </form>
         </div>
