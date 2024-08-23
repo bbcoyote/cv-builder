@@ -32,41 +32,6 @@ function Education({ setEducation, education }) {
     });
   };
 
-  // const schoolName = (e) => {
-  //   setEducation((prevSchool) => ({
-  //     ...prevSchool,
-  //     schoolName: e.target.value,
-  //   }));
-  // };
-
-  // const schoolLocation = (e) => {
-  //   setEducation((prevSchool) => ({
-  //     ...prevSchool,
-  //     schoolLocation: e.target.value,
-  //   }));
-  // };
-
-  // const degree = (e) => {
-  //   setEducation((prevSchool) => ({
-  //     ...prevSchool,
-  //     degree: e.target.value,
-  //   }));
-  // };
-
-  // const major = (e) => {
-  //   setEducation((prevSchool) => ({
-  //     ...prevSchool,
-  //     major: e.target.value,
-  //   }));
-  // };
-
-  // const attendedDate = (e) => {
-  //   setEducation((prevSchool) => ({
-  //     ...prevSchool,
-  //     dateAttended: e.target.value,
-  //   }));
-  // };
-
   return (
     <>
       <div className='info-wrapper'>

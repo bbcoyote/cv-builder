@@ -12,6 +12,8 @@ function Resume({ contactInfo, education, workExp }) {
             <h2>{contactInfo.firstName}</h2>
             <h2>{contactInfo.lastName}</h2>
             <h2>{contactInfo.jobTitle}</h2>
+            <h2>{contactInfo.email}</h2>
+            <h2>{contactInfo.phoneNumber}</h2>
           </div>
           <div className='address'>
             <span>{`${contactInfo.address.city} ${contactInfo.address.state} ${contactInfo.address.zip}`}</span>
@@ -31,11 +33,15 @@ function Resume({ contactInfo, education, workExp }) {
         </div>
         <div className='work-history'>
           <h1>Work History</h1>
-          <h2>{workExp.title}</h2>
-          <h2>{workExp.company}</h2>
-          <h3>{workExp.location}</h3>
-          <h3>{workExp.startDate}</h3>
-          <h3>{workExp.endDate}</h3>
+          {workExp.map((element, index) => (
+            <div key={index}>
+              <h2>{element.title}</h2>
+              <h2>{element.company}</h2>
+              <h3>{element.location}</h3>
+              <h3>{element.startDate}</h3>
+              <h3>{element.endDate}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </>

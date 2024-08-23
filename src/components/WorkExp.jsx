@@ -1,40 +1,33 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import "../styles/WorkExp.styles.css";
 
-function WorkExp({ setWorkExp }) {
-  const title = (e) => {
-    setWorkExp((prevWorkExp) => ({
-      ...prevWorkExp,
-      title: e.target.value,
-    }));
+function WorkExp({ setWorkExp, workExp }) {
+  const [formData, setFormData] = useState({
+    title: "",
+    comapny: "",
+    location: "",
+    startAndEndDate: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const company = (e) => {
-    setWorkExp((prevWorkExp) => ({
-      ...prevWorkExp,
-      company: e.target.value,
-    }));
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const location = (e) => {
-    setWorkExp((prevWorkExp) => ({
-      ...prevWorkExp,
-      location: e.target.value,
-    }));
-  };
-
-  const startDate = (e) => {
-    setWorkExp((prevWorkExp) => ({
-      ...prevWorkExp,
-      startDate: e.target.value,
-    }));
-  };
-
-  const endDate = (e) => {
-    setWorkExp((prevWorkExp) => ({
-      ...prevWorkExp,
-      endDate: e.target.value,
-    }));
+    setWorkExp([...workExp, formData]);
+    setFormData({
+      title: "",
+      comapny: "",
+      location: "",
+      startAndEndDate: "",
+    });
   };
 
   return (
@@ -45,13 +38,15 @@ function WorkExp({ setWorkExp }) {
           <p>Start with your most recent experience and work backward.</p>
         </div>
         <div className='work-form-wrapper'>
-          <form action=''>
+          <form action='' onSubmit={handleSubmit}>
             <label htmlFor='work title'>
               WHAT WAS YOUR TITLE?
               <input
                 type='text'
                 placeholder='e.g. Sales Associate'
-                onChange={title}
+                name='title'
+                value={formData.title}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='company'>
@@ -59,7 +54,9 @@ function WorkExp({ setWorkExp }) {
               <input
                 type='text'
                 placeholder='Person, Organization, Company, or Family Business'
-                onChange={company}
+                name='company'
+                value={formData.comapny}
+                onChange={handleChange}
               />
             </label>
             <label htmlFor='location'>
@@ -67,27 +64,23 @@ function WorkExp({ setWorkExp }) {
               <input
                 type='text'
                 placeholder='e.g. San Francisco, CA'
-                onChange={location}
+                name='location'
+                value={formData.location}
+                onChange={handleChange}
               />
             </label>
-            <label htmlFor='start date'>
+            <label htmlFor='start date and end date'>
               START DATE
               <input
                 type='text'
                 placeholder='e.g. 05/10/2020'
-                onChange={startDate}
-              />
-            </label>
-            <label htmlFor='end date'>
-              END DATE
-              <input
-                type='text'
-                placeholder='e.g. 08/18/2024'
-                onChange={endDate}
+                name='startAndEndDate'
+                value={formData.startAndEndDate}
+                onChange={handleChange}
               />
             </label>
             <div className='button-group'>
-              <button>Submit</button>
+              <button type='submit'>Submit</button>
               <button>Edit</button>
             </div>
           </form>
